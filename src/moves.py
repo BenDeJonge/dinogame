@@ -1,8 +1,9 @@
 import pyautogui as pag
 import time
 import mss
+import numpy as np
 
-def updateSpeedFactor(jumpCntr: int, speedFactor: float, bboxObstacles: dict, sct: mss.mss,
+def updateSpeedFactor(jumpCntr: int, speedFactor: float, imgObstacle: np.ndarray, bboxObstacles: dict, sct: mss.mss,
                       thresh: int = 12, increaseSpeed: float=1.1, increaseBox: int=3
                       ) -> tuple[float, mss.mss, dict[str: int]]:
     """
@@ -14,6 +15,8 @@ def updateSpeedFactor(jumpCntr: int, speedFactor: float, bboxObstacles: dict, sc
         The number of taken jumps.
     speedFactor : float
         The current speedFactor.
+    imgObstacle : np.ndarray
+        The array of the detection box.
     bboxObstacles : dict
         The current bounding box where OpenCV looks for obstacles.
     sct : mss.mss

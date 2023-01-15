@@ -36,8 +36,11 @@ def histogramImage(image: np.ndarray, channels: list[int]=[0], color:str='k'
     hist = cv2.calcHist([image], channels, None, [256], [0, 256])
     fig, ax = plt.subplots()
     ax.plot(hist, color=color)
-    ax.xlim([0, 256])
+    ax.set_xlim([0, 256])
     ax.set_xlabel('Pixel value [uint8]')
     ax.set_ylabel('Counts')
-    ax.show()
     return fig, ax
+
+if __name__ == '__main__':
+    img = cv2.imread('./resources/cactus.jpg')
+    fig, ax = histogramImage(img)

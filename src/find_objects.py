@@ -76,10 +76,10 @@ def readScore(frame: np.ndarray) -> int:
 
 
 if __name__ == '__main__':
-    frame = cv2.imread('cactus.jpg', cv2.IMREAD_GRAYSCALE)
+    frame = cv2.imread('./resources/cactus.jpg', cv2.IMREAD_GRAYSCALE)
     objects = findObjects(frame)
     print('regular', objects)
 
-    frame = cv2.imread('cactus_inverse.jpg', cv2.IMREAD_GRAYSCALE)
+    frame = cv2.imread('./resources/cactus_inverse.jpg', cv2.IMREAD_GRAYSCALE)
     objects = findObjects(frame)
     print('inverse', objects)
